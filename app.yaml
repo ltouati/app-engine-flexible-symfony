@@ -1,0 +1,21 @@
+runtime: php
+env: flex
+#[START env]
+env_variables:
+    # Replace USER, PASSWORD, DATABASE, and CONNECTION_NAME with the
+    # values obtained when configuring your Cloud SQL instance.
+    DATABASE_HOST: /cloudsql/gcp-ltouati:europe-west1:test-pg
+    DATABASE_DBNAME: testdb
+    DATABASE_USER: postgres
+    DATABASE_PWD: 12345678
+
+#[END env]
+#[START cloudsql_settings]
+# Use the connection name obtained when configuring your Cloud SQL instance.
+beta_settings:
+    cloud_sql_instances: "gcp-ltouati:europe-west1:test-pg"
+#[END cloudsql_settings]
+
+service: sfdemo
+runtime_config:
+  document_root: web
